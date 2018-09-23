@@ -21,7 +21,7 @@ eval "while true; do sleep ${AWS_SYNC_INTERVAL:-60}; bin/sync; done &"
 sync_pid=$!
 
 # create server config
-echo "server-port=${mc_port}" >> /app/server.properties
+echo "server-port=${mc_port}" >> /server.properties
 for f in whitelist banned-players banned-ips ops; do
   test ! -f $f.json && echo -n "[]" > $f.json
 done
